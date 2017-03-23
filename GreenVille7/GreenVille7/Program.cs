@@ -59,7 +59,7 @@ class GreenvilleRevenue
         int x = 0;
         int y = 0;
 
-        while (x < currentNames.Length)
+        while (x < thisYearNum)
 
         {
             Write("Please enter the name for Contestant #{0}: ", x + 1);
@@ -76,7 +76,7 @@ class GreenvilleRevenue
                     {
                         isValid = true;
                         talentCounts[y] += 1;
-                        talents[y] = inputSkill;
+                        talents[x] = inputSkill;
                     }
                 }
                 if (isValid == false)
