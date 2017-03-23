@@ -50,6 +50,8 @@ class GreenvilleRevenue
         string[] contestantTalents = { "S", "D", "M", "O" };
         string[] currentNames = { };
         string[] currentTalents;
+        string[] names = { };
+        string[] talents = { };
         int[] talentCounts = { 0, 0, 0, 0 };
         currentNames = new string[thisYearNum];
         string inputSkill, inputName;
@@ -62,6 +64,7 @@ class GreenvilleRevenue
         {
             Write("Please enter the name for Contestant #{0}: ", x + 1);
             inputName = ReadLine();
+            names[x] = inputName;
             Write("Please enter a skill, either S for singing, D for Dancing, M for Musical Intrument, or O for Other: ");
             inputSkill = ReadLine();
 
@@ -73,6 +76,7 @@ class GreenvilleRevenue
                     {
                         isValid = true;
                         talentCounts[y] += 1;
+                        talents[y] = inputSkill;
                     }
                 }
                 if (isValid == false)
@@ -91,21 +95,21 @@ class GreenvilleRevenue
 
         }
 
-        inputSkill = "";
-        while (inputSkill != "Q")
-        {
-            WriteLine("Enter a talent code to see how many contestants will be showcasing that talent this year OR enter Q to quit: ");
-            inputSkill = ReadLine();
-            for (y = 0; y < contestantTalents.Length; y++)
-            {
-                if (inputSkill == contestantTalents[y])
-                {
-                    WriteLine("{0} contestant(s) will be showcasing that talent this year.", talentCounts[y]);
-                }
-            }
+        makeArray(names, talents);
 
-
-        }
+        //inputSkill = "";
+        //while (inputSkill != "Q")
+        //{
+        //    WriteLine("Enter a talent code to see how many contestants will be showcasing that talent this year OR enter Q to quit: ");
+        //    inputSkill = ReadLine();
+        //    for (y = 0; y < contestantTalents.Length; y++)
+        //    {
+        //        if (inputSkill == contestantTalents[y])
+        //        {
+        //            WriteLine("{0} contestant(s) will be showcasing that talent this year.", talentCounts[y]);
+        //        }
+        //    }
+        //}
 
         //Chapter 7 addition
         RaceMessage(thisYearNum, lastYearNum);
@@ -136,6 +140,18 @@ class GreenvilleRevenue
         else
                if (valThisYear < valLastYear)
             WriteLine("A tighter race this year! Come out and cast your vote.");
+    }
+
+    private static void makeArray(string[] competitor, string[] talent)
+    {
+        WriteLine("{0, 10} {1, 10}", "Name", "Talent");
+        for (int x = 0; x < competitor.Length; ++x)
+        {
+            for (int y = 0; y < talent.Length; ++y)
+            {
+                WriteLine("{0, 10} {1, 10}", competitor[x], talent[y]);
+            }
+        }
     }
     //Chapter 7 additon end
 }
