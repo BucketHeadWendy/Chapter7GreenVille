@@ -50,8 +50,8 @@ class GreenvilleRevenue
         string[] contestantTalents = { "S", "D", "M", "O" };
         string[] currentNames = { };
         string[] currentTalents;
-        string[] names = { };
-        string[] talents = { };
+        string[] names = new string[thisYearNum];
+        string[] talents = new string[thisYearNum];
         int[] talentCounts = { 0, 0, 0, 0 };
         currentNames = new string[thisYearNum];
         string inputSkill, inputName;
